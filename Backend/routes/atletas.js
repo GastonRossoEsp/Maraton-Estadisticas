@@ -13,6 +13,16 @@ router.get('/', (req, res) => {
     res.json(atletasCiudad);
 });
 
+router.get('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const atleta = config.atletas.find(a => a.id === id);
+
+    if (!atleta) {
+        return res.status(404).json({ error: 'Atleta no encontrado' });
+    }
+    res.json(atleta);
+});
+
 router.post('/', (req, res) => {
     console.log('Datos recibidos:', req.body);
     const {dni, nombre, tiempo, posicion, ciudadId} = req.body;

@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Ciudad</label>
-                <select v-model.number="form.ciudadID" class="form-select" required>
+                <select v-model.number="form.ciudadId" class="form-select" required>
                     <option value="">Seleccionar...</option>
                     <option v-for="ciudad in ciudades" :key="ciudad.id" :value="ciudad.id">{{ ciudad.nombre }}</option>
                 </select>
