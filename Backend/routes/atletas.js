@@ -15,11 +15,10 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    const atleta = config.atletas.find(a => a.id === id);
+    if (isNaN(id)) return res.status(400).json({ error: 'ID inválido' });
 
-    if (!atleta) {
-        return res.status(404).json({ error: 'Atleta no encontrado' });
-    }
+    const atleta = config.atletas.find(a => a.id === id);
+    if (!atleta) return res.status(404).json({ error: 'Atleta no encontrado' });
     res.json(atleta);
 });
 
@@ -59,7 +58,7 @@ router.put('/:id', (req, res) => {
     if (nombre) atleta.nombre = nombre.trim();
     if (tiempo) atleta.tiempo = tiempo.trim();
     if (posicion) atleta.posicion = parseInt(posicion);
-    if (ciudadId) atleta.ciudadId = ciudadId;
+    if (ciudadId) atleta.ciudadId = Number(ciudadId);
 
     res.json(atleta);
 });
