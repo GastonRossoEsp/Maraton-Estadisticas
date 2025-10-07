@@ -23,7 +23,7 @@
                         <td>{{ atleta.tiempo }}</td>
                         <td>{{ atleta.ciudadNombre }}</td>
                         <td>
-                            <router-link :to="`/atletas/editar/${atleta.id}`" class="btn btn-sm btn-warning">Editar</router-link>
+                            <router-link :to="`/atletas/${atleta.id}`" class="btn btn-primary btn-sm">Editar</router-link>
                             <button @click="eliminar(atleta.id)" class="btn btn-sm btn-danger ms-1">Eliminar</button>
                         </td>
                     </tr>
