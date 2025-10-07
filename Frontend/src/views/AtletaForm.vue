@@ -2,7 +2,7 @@
     <div class="container">
         <h2>{{ id ? 'Editar Atleta' : 'Nuevo Atleta' }}</h2>
         <form @submit.prevent="guardar">
-            <div class="mb-3">>
+            <div class="mb-3">
                 <label class="form-label">DNI</label>
                 <input v-model.number="form.dni" type="number" class="form-control" required />
             </div>
@@ -25,7 +25,7 @@
                     <option v-for="ciudad in ciudades" :key="ciudad.id" :value="ciudad.id">{{ ciudad.nombre }}</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-succes">Guardar</button>
+            <button type="submit" class="btn btn-success">Guardar</button>
             <router-link to="/atletas" class="btn btn-secondary ms-2">Cancelar</router-link>
         </form>
     </div>
@@ -40,7 +40,7 @@ const route = useRoute();
 const router = useRouter();
 const api = useApi();
 const id = route.params.id;
-const form = ref({ dni: null, nombre: '', tiempo: '', posicion: null, ciudadID: null });
+const form = ref({ dni: null, nombre: '', tiempo: '', posicion: null, ciudadId: null });
 const ciudades = ref([]);
 
 const cargarCiudades = async () => {
